@@ -1,12 +1,14 @@
 import React from 'react';
 const Ingredients = (props)=>{
 
-    return(
-        <ul className="Ingredient-parent">
+    return(<div className="Ingredient-super-parent">
+        <h4>{props.header}</h4>
+        <select className="Ingredient-parent">
         {props.ingredients.map(function(val,ind){
-           return(<li key={ind}>{val.name}</li>)
+           return(<option key={ind}>{val.name}</option>)
         })}
-    </ul>
+    </select>
+    </div>
     )
 
 }
