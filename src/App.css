@@ -30,12 +30,17 @@
     transform: rotate(360deg);
   }
 }
-
+.Ingredient-super-parent h4{
+  text-align: left;
+  text-transform: capitalize;
+  margin: 10px;
+}
 .Ingredient-parent{
     list-style-type: none;
     border: 1px solid grey;
     width: 50%;
-    margin: auto;
+    display: block;
+    margin: 10px; 
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 20px;

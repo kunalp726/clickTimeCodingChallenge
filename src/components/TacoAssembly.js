@@ -3,27 +3,32 @@ import Ingredients from "./Ingredients";
 
 class TacoAssembly extends Component{
 state={
+    baseUrl:"https://tacos-ocecwkpxeq.now.sh/",
     url:[
-        "https://tacos-ocecwkpxeq.now.sh/shells",
-        "https://tacos-ocecwkpxeq.now.sh/mixins",
-        "https://tacos-ocecwkpxeq.now.sh/seasonings",
-        "https://tacos-ocecwkpxeq.now.sh/condiments",
-        "https://tacos-ocecwkpxeq.now.sh/baseLayers"
+        "shells",
+        "mixins",
+        "seasonings",
+        "condiments",
+        "baseLayers"
     ],
 ingredients:[]
 }
-apiCall(url){
+apiCall(baseUrl,url){
     return new Promise(function(resolve,reject){
-    fetch(url).then((response)=>{
+    fetch(baseUrl+url).then((response)=>{
         return response.json();
           }).then((obj)=>{
-            resolve(obj);
+            resolve({
+                obj:obj,
+                header:url
+            });
           });
     });
 }
 componentDidMount(){
+    var baseUrl=this.state.baseUrl;
     var promisArray=this.state.url.map(element => {
-        return this.apiCall(element);
+        return this.apiCall(baseUrl,element);
     });
     var responseArray=[];
     Promise.all(promisArray).then((values)=>{
@@ -32,14 +37,15 @@ componentDidMount(){
             ingredients:responseArray
         })
     });
-   
+    
 }
 render(){
     return(
         <div>
+            <h1>San Jose's Best</h1>
         {
             this.state.ingredients.map(function(element,index){
-            return(<Ingredients key={index} ingredients={element}></Ingredients>)})
+            return(<Ingredients header={element.header} key={index} ingredients={element.obj}></Ingredients>)})
         }
         </div>
     );
