@@ -42,7 +42,9 @@ body{
   margin: 10px;
   text-transform: capitalize;
   font-variant: small-caps;
+  font-family: arial;
   font-size: 18px;
+  font-weight: 800;
 }
 .Ingredient-super-parent {
   padding: 10px;
@@ -80,9 +82,10 @@ body{
   margin-left: 25%;
   margin-top: 14px;
 }
-.parent .row{
-  margin-left:0px;
-  margin-right: 0px;
+  .parent .row {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
 }
 
 .header{ 
@@ -101,21 +104,31 @@ body{
   border-radius: 0px;
   margin-right: 1%;
   box-shadow: 4px 4px 7px -1px rgba(0,0,0,0.75);
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-family: arial;
 }
 .intro {
   padding: 20px;
   color: white;
 }
 .intro p{
-  font-size: 16px;
+  font-size: 18px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-family: arial;
 }
 .taco-list{
   margin-top: 20px;
   border: 1px solid lightgrey;
   padding: 10px;
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
 }
 .taco-list .button-parent{
   padding:0px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-family: arial;
 }
 .taco-list-start{
   padding: 15px;
@@ -126,4 +139,12 @@ body{
   font-weight: bold;
   font-family: arial;
   font-size: 38px;
+}
+.footer{
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-family: arial;
+  color: #fff;
+  padding: 5px;
+
 }
