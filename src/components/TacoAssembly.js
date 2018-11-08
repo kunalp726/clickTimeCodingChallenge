@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Ingredients from "./Ingredients";
+import BuiltTacos from "./BuiltTacos";
 
 class TacoAssembly extends Component{
 state={
@@ -7,12 +8,14 @@ state={
     baseUrl:"https://tacos-ocecwkpxeq.now.sh/",
     url:[
         "shells",
+        "baseLayers",
         "mixins",
-        "seasonings",
         "condiments",
-        "baseLayers"
+        "seasonings",
+        
     ],
-ingredients:[]
+ingredients:[],
+tacoTracker:[]
 }
 apiCall(baseUrl,url){
     return new Promise(function(resolve,reject){
@@ -70,15 +73,51 @@ this.setState({
 });
 console.log(this.state.currSelection);
 }
+
+makeMyTaco=()=>{
+    const newState={...this.state};
+    let randomSelection=JSON.stringify(newState.currSelection);
+    
+    newState.tacoTracker.push(JSON.parse(randomSelection));
+    this.setState({...newState});
+    console.log(this.state.tacoTracker);
+}
+
+makeRandomTaco=()=>{
+    const newState={...this.state};
+    let randomSelection={};
+    newState.ingredients.forEach((ele)=>{
+        randomSelection[ele.header]=[ele.obj[Math.floor(Math.random()*ele.obj.length)].name];
+    });
+    newState.tacoTracker.push(randomSelection);
+    this.setState({...newState});
+    console.log(this.state.tacoTracker);
+}
+removeTaco=(key)=>{
+const newState={...this.state};
+newState.tacoTracker.splice(key,1)
+this.setState({...newState});
+}
 render(){
     return(
-        <div>
-            <h1>San Jose's Best</h1>
-           
+        <div className="container">
+         <h1>San Jose's Best</h1>
+        <div className="row">
+            <div className="col-lg-6 col-md-6 col-sm-6">  
         {
             this.state.ingredients.map((element,index)=>{
             return(<Ingredients addToTaco={this.addToTaco} add={this.addIngredient} count={element.count} header={element.header} key={index} ingredients={element.obj}></Ingredients>)})
         }
+        </div>
+        <div className="col-lg-6 col-md-6 col-sm-6">
+        {this.state.tacoTracker.map((ele,index)=>{
+            return(<BuiltTacos removeTaco={this.removeTaco} key={index} id={index} ele={ele}></BuiltTacos>)
+        })}
+        </div>
+       
+        </div>
+        <button onClick={this.makeMyTaco}>Make My Taco!</button>
+        <button onClick={this.makeRandomTaco}>Surprise Me!</button>
         </div>
     );
 }
