@@ -35,14 +35,24 @@
   text-transform: capitalize;
   margin: 10px;
 }
+.Ingredient-super-parent{
+  width: 40%;
+  padding: 10px;
+  box-shadow: 1px 1px 1px 0.5px grey;
+  margin: 15px;
+  background-color: #fff;
+}
 .Ingredient-parent{
     list-style-type: none;
     border: 1px solid grey;
-    width: 50%;
+    width: 90%;
     display: block;
     margin: 10px; 
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 20px;
     box-shadow: 1px 1px 1px 0.5px grey;
+}
+body{
+  background-color: #f2f2f2;
 }
