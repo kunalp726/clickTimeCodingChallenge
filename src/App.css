@@ -1,3 +1,7 @@
+
+body{
+  background: #223c65 url("./bg-light-pattern.gif");
+}
 .App {
   text-align: center;
 }
@@ -30,28 +34,96 @@
     transform: rotate(360deg);
   }
 }
+
+/* custom CSS */
+
 .Ingredient-super-parent h4{
   text-align: left;
-  text-transform: capitalize;
   margin: 10px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-size: 18px;
 }
-.Ingredient-super-parent{
+.Ingredient-super-parent {
   padding: 10px;
-  box-shadow: 1px 1px 1px 0.5px grey;
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
   margin: 15px;
-  background-color: #fff;
+  border: 1px solid lightgrey;
 }
-.Ingredient-parent{
-    list-style-type: none;
-    border: 1px solid grey;
-    width: 90%;
-    display: block;
-    margin: 10px; 
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 20px;
-    box-shadow: 1px 1px 1px 0.5px grey;
-}
-body{
+.Ingredient-parent {
   background-color: #f2f2f2;
+  list-style-type: none;
+  border: 1px solid grey;
+  width: 90%;
+  display: block;
+  margin: 10px;
+  height: 25px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 20px;
+}
+.header img {
+  width: 180px;
+  margin-left: 20px;
+  margin-top: 20px;
+  float: left;
+}
+.header h1 {
+  color: #f2f2f2;
+  text-align: left;
+  float: left;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-family: arial;
+  font-size: 38px;
+  margin-left: 25%;
+  margin-top: 14px;
+}
+.parent .row{
+  margin-left:0px;
+  margin-right: 0px;
+}
+
+.header{ 
+    background-color: rgb(0,0,0,0.5);
+    /* box-shadow: 0 0 8px #888; */
+}
+.parent .child{
+  padding: 10px;
+  margin-left: 26px;
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  background: #f2f2f2;
+}
+.parent .child .main-btn {
+  width: 48%;
+  margin-left: 1%;
+  border-radius: 0px;
+  margin-right: 1%;
+  box-shadow: 4px 4px 7px -1px rgba(0,0,0,0.75);
+}
+.intro {
+  padding: 20px;
+  color: white;
+}
+.intro p{
+  font-size: 16px;
+}
+.taco-list{
+  margin-top: 20px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+.taco-list .button-parent{
+  padding:0px;
+}
+.taco-list-start{
+  padding: 15px;
+  padding-bottom: 0px;
+  text-align: left;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-family: arial;
+  font-size: 38px;
 }
