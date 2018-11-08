@@ -125,6 +125,7 @@ render(){
         </div>
        
         </div>
+        <div className="footer">Name:Kunal Pavashiya | Email: Kunal.pavashiya@sjsu.edu | Phone: +1(669)261-0560</div>
          </div>
     );
 }
