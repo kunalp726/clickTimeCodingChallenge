@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Ingredients from "./Ingredients";
 import BuiltTacos from "./BuiltTacos";
+import headerImg from "../clicktime-logo-blue.png";
 
 class TacoAssembly extends Component{
 state={
@@ -62,7 +63,6 @@ newState.ingredients.forEach((ele)=>{
 this.setState({
     ...newState
 });
-console.log(this.state.currSelection);
 }
 
 addToTaco=(index,header,val)=>{
@@ -71,7 +71,6 @@ newState.currSelection[header][index]=val;
 this.setState({
     ...newState
 });
-console.log(this.state.currSelection);
 }
 
 makeMyTaco=()=>{
@@ -80,7 +79,6 @@ makeMyTaco=()=>{
     
     newState.tacoTracker.push(JSON.parse(randomSelection));
     this.setState({...newState});
-    console.log(this.state.tacoTracker);
 }
 
 makeRandomTaco=()=>{
@@ -91,7 +89,6 @@ makeRandomTaco=()=>{
     });
     newState.tacoTracker.push(randomSelection);
     this.setState({...newState});
-    console.log(this.state.tacoTracker);
 }
 removeTaco=(key)=>{
 const newState={...this.state};
@@ -100,25 +97,35 @@ this.setState({...newState});
 }
 render(){
     return(
-        <div className="container">
-         <h1>San Jose's Best</h1>
+        <div>
+            <div className="header clearfix">
+            <img src={headerImg}></img>
+             <h1>Taco Factory</h1>
+             </div>
+             <div className="intro"><p>Please Select the Ingredients and click the "Make My Taco" button OR try our taco randomiser by Clicking on "Surprise Me!"</p></div>
+        <div className="parent">
+        
         <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-6">  
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4 child">  
+           
         {
             this.state.ingredients.map((element,index)=>{
             return(<Ingredients addToTaco={this.addToTaco} add={this.addIngredient} count={element.count} header={element.header} key={index} ingredients={element.obj}></Ingredients>)})
         }
         </div>
-        <div className="col-lg-6 col-md-6 col-sm-6">
+        <div className="col-lg-7 col-md-7 col-sm-7 col-xs-7 child">
+        <button className="btn btn-primary main-btn" onClick={this.makeMyTaco}>Make My Taco!</button>
+        <button className="btn btn-primary main-btn" onClick={this.makeRandomTaco}>Surprise Me!</button>
+        <p className="taco-list-start">Taco List :</p>
         {this.state.tacoTracker.map((ele,index)=>{
             return(<BuiltTacos removeTaco={this.removeTaco} key={index} id={index} ele={ele}></BuiltTacos>)
         })}
         </div>
        
         </div>
-        <button onClick={this.makeMyTaco}>Make My Taco!</button>
-        <button onClick={this.makeRandomTaco}>Surprise Me!</button>
+       
         </div>
+         </div>
     );
 }
 }
