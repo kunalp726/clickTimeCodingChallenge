@@ -140,11 +140,16 @@ body{
   font-family: arial;
   font-size: 38px;
 }
+.inline-button{
+  border-radius: 0px;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-family: arial;
+}
 .footer{
   text-transform: capitalize;
   font-variant: small-caps;
   font-family: arial;
   color: #fff;
   padding: 5px;
-
 }
