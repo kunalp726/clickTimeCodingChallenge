@@ -6,7 +6,7 @@ const Ingredients = (props)=>{
     }
     let button;
     if(props.header==="mixins" || props.header==="condiments"){
-        button= <button onClick={()=>{props.add(props.header)}}>Add more {props.header}</button>;
+        button= <button className="btn btn-primary inline-button" onClick={()=>{props.add(props.header)}}>Add more {props.header}</button>;
     }   
     return(<div className="Ingredient-super-parent">
         
